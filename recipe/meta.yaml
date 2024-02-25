@@ -1,4 +1,4 @@
-{% set version = "0.1.9" %}
+{% set version = "0.1.10" %}
 
 package:
   name: uv
@@ -7,7 +7,7 @@ package:
 source:
   fn: uv-{{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
-  sha256: 5ac47ac172b0d451bb9820174d2b1ddbf1f99a257d512f065735d3a0dec44854
+  sha256: cf57c25c9b806efdc8f81ff1e66df985513caf28a4508b6399d1e125fabbe359
 
 build:
   number: 0
@@ -33,9 +33,9 @@ about:
   home: https://github.com/astral-sh/uv
   license: Apache-2.0 OR MIT
   license_file:
-   - LICENSE-APACHE
-   - LICENSE-MIT
-   - THIRDPARTY.yml
+    - LICENSE-APACHE
+    - LICENSE-MIT
+    - THIRDPARTY.yml
   summary: An extremely fast Python package installer and resolver, written in Rust.
 
 extra:
