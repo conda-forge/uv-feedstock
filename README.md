@@ -177,4 +177,5 @@ Feedstock Maintainers
 =====================
 
 * [@bollwyvl](https://github.com/bollwyvl/)
+* [@charliermarsh](https://github.com/charliermarsh/)
 
