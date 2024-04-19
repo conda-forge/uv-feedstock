@@ -1,4 +1,4 @@
-{% set version = "0.1.33" %}
+{% set version = "0.1.34" %}
 
 package:
   name: uv
@@ -7,7 +7,7 @@ package:
 source:
   fn: uv-{{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
-  sha256: 54a67168f4c5cdf44f4197e948cf4ecb65e71001f49584d79eab82358bbda813
+  sha256: ff93be812726a344252374ba1751b0089237439077a30c9214fb9a44bc32582b
 
 build:
   number: 0
@@ -15,6 +15,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
