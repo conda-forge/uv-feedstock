@@ -1,4 +1,4 @@
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: uv
@@ -7,7 +7,7 @@ package:
 source:
   fn: uv-{{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
-  sha256: e7ca19e90cc640ac96756b52cdae640d03e427fbce92643a00883cc530487ffd
+  sha256: aa6349670507cf6ce80d832d488391b82b48a9f4511c868886758349d62664de
 
 build:
   number: 0
