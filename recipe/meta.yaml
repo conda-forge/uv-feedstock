@@ -8,6 +8,8 @@ source:
   fn: uv-{{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
   sha256: c822fc118367829825775874c19d14bb9415804a2c5efa6dfbb302b1fb18ae0e
+  patches:
+    - 0000-no-link-static-vc-runtime.patch
 
 build:
   number: 0
