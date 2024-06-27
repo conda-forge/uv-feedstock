@@ -3,7 +3,9 @@ build_platform:
   linux_ppc64le: linux_64
   osx_arm64: osx_64
 conda_build:
-  error_overlinking: true
+  # See https://github.com/conda-forge/rust-activation-feedstock/issues/58
+  # error_overlinking: true
+  error_overlinking: false
 conda_forge_output_validation: true
 github:
   branch_name: main
