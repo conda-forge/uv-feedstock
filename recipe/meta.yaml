@@ -23,6 +23,7 @@ requirements:
     - cargo-bundle-licenses
     - cmake
     - make
+    - rust >=1.80
 
 test:
   requires:
