@@ -3,14 +3,12 @@ c_compiler:
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge/label/rust_dev,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2019
 rust_compiler:
 - rust
-rust_compiler_version:
-- 1.81.0
 target_platform:
 - win-64
