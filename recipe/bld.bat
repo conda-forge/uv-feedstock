@@ -1,8 +1,11 @@
 @echo on
 
+set CARGO_PROFILE_RELEASE_STRIP=symbols
+
 cd crates\uv
 
 cargo install ^
+    --no-track ^
     --locked ^
     --path . ^
     --profile release ^
@@ -14,6 +17,3 @@ cargo-bundle-licenses ^
     --format yaml ^
     --output "%SRC_DIR%\THIRDPARTY.yml" ^
     || exit 3
-
-del "%$PREFIX%\.crates2.json"
-del "%$PREFIX%\.crates.toml"
