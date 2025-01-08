@@ -3,8 +3,8 @@ set -eux
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 
-# Use jemalloc on linux-aarch64
-if [[ "${target_platform}" == "linux-aarch64" ]]; then
+# Use jemalloc on linux-aarch64 and linux-ppc64le
+if [[ "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-ppc64le" ]]; then
   export JEMALLOC_SYS_WITH_LG_PAGE=16
 fi
 
