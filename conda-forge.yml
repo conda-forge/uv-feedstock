@@ -1,4 +1,7 @@
+bot:
+  automerge: true
 azure:
+  upload_packages: true
   settings_linux:
     swapfile_size: 10GiB
 build_platform:
@@ -17,5 +20,3 @@ provider:
   linux_aarch64: default
   linux_ppc64le: default
 test: native_and_emulated
-bot:
-  automerge: true
