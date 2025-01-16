@@ -29,7 +29,8 @@ requirements:
 tests:
   - requirements:
       run:
-        - m2-grep  # [win]
+        - if: win
+          then: m2-grep
     script:
       - uv --version
       - uv --help
