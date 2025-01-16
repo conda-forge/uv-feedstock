@@ -8,8 +8,8 @@ package:
   version: ${{ version }}
 
 source:
-  file_name: uv-{{ version }}.tar.gz
-  url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
+  file_name: uv-${{ version }}.tar.gz
+  url: https://github.com/astral-sh/uv/releases/download/${{ version }}/source.tar.gz
   sha256: 928aec0a95fad758f0dfd3856134a240f42792042205764a43929d4e437bd3a7
   patches:
     - 0000-no-link-static-vc-runtime.patch
@@ -34,7 +34,7 @@ tests:
     script:
       - uv --version
       - uv --help
-      - uv --version | grep -iE {{ version.replace('.', '\.') }}
+      - uv --version | grep -iE ${{ version | replace(".", "\\.") }}
 
 about:
   homepage: https://github.com/astral-sh/uv
@@ -44,7 +44,7 @@ about:
     - LICENSE-MIT
     - THIRDPARTY.yml
   summary: An extremely fast Python package installer and resolver, written in Rust.
-  documentation: https://docs.astral.sh/uv/
+  documentation: https://docs.astral.sh/uv
 
 extra:
   recipe-maintainers:

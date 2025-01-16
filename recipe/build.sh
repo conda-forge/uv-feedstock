@@ -15,7 +15,7 @@ cargo install \
   --locked \
   --path . \
   --profile release \
-  --root "$PREFIX"
+  --root "${PREFIX}"
 
 cargo-bundle-licenses \
   --format yaml \
