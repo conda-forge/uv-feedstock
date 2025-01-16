@@ -8,7 +8,6 @@ package:
   version: ${{ version }}
 
 source:
-  file_name: uv-${{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/${{ version }}/source.tar.gz
   sha256: 928aec0a95fad758f0dfd3856134a240f42792042205764a43929d4e437bd3a7
   patches:
