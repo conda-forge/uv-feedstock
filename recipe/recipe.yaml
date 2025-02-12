@@ -21,13 +21,18 @@ build:
 
 requirements:
   build:
-    - ${{ compiler('c') }}
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ compiler("rust") }}
     - ${{ stdlib("c") }}
-    - ${{ compiler('cxx') }}
-    - ${{ compiler('rust') }}
     - cargo-bundle-licenses
     - cmake
     - make
+    - if: unix
+      then:
+        - pkg-config
+  host:
+    - zlib
 
 tests:
   - requirements:
