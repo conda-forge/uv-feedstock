@@ -9,6 +9,8 @@ Package license: Apache-2.0 OR MIT
 
 Summary: An extremely fast Python package installer and resolver, written in Rust.
 
+Documentation: https://docs.astral.sh/uv
+
 Current build status
 ====================
 

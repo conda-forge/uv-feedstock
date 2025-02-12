@@ -1,12 +1,13 @@
-bot:
-  automerge: true
 azure:
-  upload_packages: true
+  free_disk_space: true
   settings_linux:
     swapfile_size: 10GiB
   settings_win:
     variables:
       SET_PAGEFILE: 'True'
+  upload_packages: true
+bot:
+  automerge: true
 build_platform:
   linux_aarch64: linux_64
   linux_ppc64le: linux_64
@@ -15,6 +16,7 @@ conda_build:
   # See https://github.com/conda-forge/rust-activation-feedstock/issues/58
   # error_overlinking: true
   error_overlinking: false
+conda_build_tool: rattler-build
 conda_forge_output_validation: true
 github:
   branch_name: main
@@ -22,4 +24,6 @@ github:
 provider:
   linux_aarch64: default
   linux_ppc64le: default
+shellcheck:
+  enabled: true
 test: native_and_emulated

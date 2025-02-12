@@ -8,6 +8,13 @@ if [[ "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-
   export JEMALLOC_SYS_WITH_LG_PAGE=16
 fi
 
+# use lld on osx
+if [[ "${target_platform}" == osx-* ]]; then
+  export CMAKE_LINKER_TYPE="LLD"
+else
+  export CMAKE_LINKER_TYPE="DEFAULT"
+fi
+
 cd crates/uv
 
 cargo install \
@@ -15,7 +22,7 @@ cargo install \
   --locked \
   --path . \
   --profile release \
-  --root "$PREFIX"
+  --root "${PREFIX}"
 
 cargo-bundle-licenses \
   --format yaml \
