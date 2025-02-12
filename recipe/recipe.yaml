@@ -31,6 +31,9 @@ requirements:
     - if: unix
       then:
         - pkg-config
+    - if: osx
+      then:
+        - lld
   host:
     - zlib
 
