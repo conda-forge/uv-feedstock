@@ -1,10 +1,11 @@
 azure:
-  upload_packages: true
+  free_disk_space: true
   settings_linux:
     swapfile_size: 10GiB
   settings_win:
     variables:
       SET_PAGEFILE: 'True'
+  upload_packages: true
 bot:
   automerge: true
 build_platform:
