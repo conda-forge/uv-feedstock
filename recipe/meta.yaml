@@ -1,4 +1,4 @@
-{% set version = "0.6.2" %}
+{% set version = "0.6.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   fn: uv-{{ version }}.tar.gz
   url: https://github.com/astral-sh/uv/releases/download/{{ version }}/source.tar.gz
-  sha256: fb9e890a132a11bd8fdf462c27653501e37db292058066e0a9e6ce9aa2fa5fe4
+  sha256: 4f47765e067085d21e792b4dad5813fc2141dd92109fd2221561b5109c825cc3
   patches:
     - 0000-no-link-static-vc-runtime.patch
 
