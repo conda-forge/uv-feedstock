@@ -1,7 +1,7 @@
 bot:
   automerge: true
 azure:
-  upload_packages: true
+  free_disk_space: true
   settings_linux:
     swapfile_size: 10GiB
   settings_win:
