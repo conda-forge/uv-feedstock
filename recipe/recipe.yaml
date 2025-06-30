@@ -15,7 +15,7 @@ source:
     - 0000-no-link-static-vc-runtime.patch
 
 build:
-  number: 0
+  number: 1
   script:
     file: build-uv
     env:
