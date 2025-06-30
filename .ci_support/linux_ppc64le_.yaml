@@ -20,6 +20,8 @@ docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 rust_compiler:
 - rust
+rust_compiler_version:
+- '1.87'
 target_platform:
 - linux-ppc64le
 zip_keys:
