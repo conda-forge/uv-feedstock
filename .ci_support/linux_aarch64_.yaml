@@ -21,7 +21,7 @@ docker_image:
 rust_compiler:
 - rust
 rust_compiler_version:
-- '1.85'
+- '1.86'
 target_platform:
 - linux-aarch64
 zip_keys:
