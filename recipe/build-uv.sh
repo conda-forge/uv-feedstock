@@ -12,6 +12,7 @@ fi
 cd crates/uv
 
 cargo install \
+  --jobs 1 \
   --no-track \
   --locked \
   --path . \
