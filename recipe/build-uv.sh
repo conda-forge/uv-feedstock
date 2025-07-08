@@ -22,14 +22,7 @@ if [[ "${target_platform}" == "linux-ppc64le" ]]; then
   export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
 fi
 
-cd crates/uv
-
-cargo install \
-  --no-track \
-  --locked \
-  --path . \
-  --profile release \
-  --root "${PREFIX}"
+${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 cargo-bundle-licenses \
   --format yaml \

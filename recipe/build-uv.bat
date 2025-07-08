@@ -2,16 +2,7 @@
 
 set CARGO_PROFILE_RELEASE_STRIP=symbols
 
-cd crates\uv
-
-cargo install ^
-    --no-track ^
-    --locked ^
-    --path . ^
-    --profile release ^
-    --root "%LIBRARY_PREFIX%" ^
-    || exit 1
-
+%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 
 cargo-bundle-licenses ^
     --format yaml ^

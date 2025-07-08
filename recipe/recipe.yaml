@@ -15,7 +15,7 @@ source:
     - 0000-no-link-static-vc-runtime.patch
 
 build:
-  number: 0
+  number: 1
   script:
     file: build-uv
     env:
@@ -31,8 +31,12 @@ requirements:
     - ${{ compiler("rust") }}
     - ${{ stdlib("c") }}
     - cargo-bundle-licenses
-    - cmake
-    - make
+    - python                                        # [build_platform != target_platform]
+    - maturin >=1.0,<2.0                            # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}            # [build_platform != target_platform]
+  host:
+    - python
+    - maturin >=1.0,<2.0
 
 tests:
   - requirements:
@@ -43,6 +47,7 @@ tests:
       - uv --version
       - uv --help
       - uv --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - uv pip show uv
 
 about:
   homepage: https://github.com/astral-sh/uv
@@ -58,3 +63,4 @@ extra:
   recipe-maintainers:
     - charliermarsh
     - bollwyvl
+    - anjos
