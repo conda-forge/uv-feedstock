@@ -41,6 +41,11 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - maturin <2
+  run:
+    - python
+  ignore_run_exports:
+    from_package:
+      - cross-python_${{ target_platform }}
 
 tests:
   - requirements:
