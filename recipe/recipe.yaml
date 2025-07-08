@@ -33,7 +33,7 @@ requirements:
     - cargo-bundle-licenses
     - python                                        # [build_platform != target_platform]
     - maturin >=1.0,<2.0                            # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}            # [build_platform != target_platform]
+    - cross-python_${{ target_platform }}           # [build_platform != target_platform]
   host:
     - python
     - maturin >=1.0,<2.0
