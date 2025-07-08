@@ -16,6 +16,8 @@ source:
 
 build:
   number: 1
+  python:
+    version_independent: true
   script:
     file: build-uv
     env:
