@@ -41,6 +41,7 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - maturin <2
+    - pip
   run:
     - python
   ignore_run_exports:
