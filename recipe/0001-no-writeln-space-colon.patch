@@ -1,0 +1,46 @@
+diff --git a/crates/uv/src/windows_exception.rs b/crates/uv/src/windows_exception.rs
+index 048eaa1..15d431a 100644
+--- a/crates/uv/src/windows_exception.rs
++++ b/crates/uv/src/windows_exception.rs
+@@ -174,8 +174,8 @@ fn dump_regs(e: &mut ExceptionSafeStderr, c: &CONTEXT) -> std::fmt::Result {
+     } = c;
+     writeln!(e, "rax={Rax:016x} rbx={Rbx:016x} rcx={Rcx:016x}")?;
+     writeln!(e, "rdx={Rdx:016x} rsi={Rsi:016x} rdi={Rdi:016x}")?;
+-    writeln!(e, "rsp={Rsp:016x} rbp={Rbp:016x}  r8={R8 :016x}")?;
+-    writeln!(e, " r9={R9 :016x} r10={R10:016x} r11={R11:016x}")?;
++    writeln!(e, "rsp={Rsp:016x} rbp={Rbp:016x}  r8={R8:016x}")?;
++    writeln!(e, " r9={R9:016x} r10={R10:016x} r11={R11:016x}")?;
+     writeln!(e, "r12={R12:016x} r13={R13:016x} r14={R14:016x}")?;
+     writeln!(e, "r15={R15:016x} rip={Rip:016x} eflags={EFlags:016x}")?;
+     Ok(())
+@@ -220,18 +220,18 @@ fn dump_regs(e: &mut ExceptionSafeStderr, c: &CONTEXT) -> std::fmt::Result {
+         Fp,
+         Lr,
+     } = regs;
+-    writeln!(e, "cpsr={Cpsr:016x}  sp={Sp :016x}  pc={Pc :016x}")?;
+-    writeln!(e, "  x0={X0  :016x}  x1={X1 :016x}  x2={X2 :016x}")?;
+-    writeln!(e, "  x3={X3  :016x}  x4={X4 :016x}  x5={X5 :016x}")?;
+-    writeln!(e, "  x6={X6  :016x}  x7={X7 :016x}  x8={X8 :016x}")?;
+-    writeln!(e, "  x9={X9  :016x} x10={X10:016x} x11={X11:016x}")?;
+-    writeln!(e, " x12={X12 :016x} x13={X13:016x} x14={X14:016x}")?;
+-    writeln!(e, " x15={X15 :016x} x16={X16:016x} x17={X17:016x}")?;
+-    writeln!(e, " x18={X18 :016x} x19={X19:016x} x20={X20:016x}")?;
+-    writeln!(e, " x21={X21 :016x} x22={X22:016x} x23={X23:016x}")?;
+-    writeln!(e, " x24={X24 :016x} x25={X25:016x} x26={X26:016x}")?;
+-    writeln!(e, " x27={X27 :016x} x28={X28:016x}")?;
+-    writeln!(e, "  fp={Fp  :016x}  lr={Lr :016x}")?;
++    writeln!(e, "cpsr={Cpsr:016x}  sp={Sp:016x}  pc={Pc:016x}")?;
++    writeln!(e, "  x0={X0:016x}  x1={X1:016x}  x2={X2:016x}")?;
++    writeln!(e, "  x3={X3:016x}  x4={X4:016x}  x5={X5:016x}")?;
++    writeln!(e, "  x6={X6:016x}  x7={X7:016x}  x8={X8:016x}")?;
++    writeln!(e, "  x9={X9:016x} x10={X10:016x} x11={X11:016x}")?;
++    writeln!(e, " x12={X12:016x} x13={X13:016x} x14={X14:016x}")?;
++    writeln!(e, " x15={X15:016x} x16={X16:016x} x17={X17:016x}")?;
++    writeln!(e, " x18={X18:016x} x19={X19:016x} x20={X20:016x}")?;
++    writeln!(e, " x21={X21:016x} x22={X22:016x} x23={X23:016x}")?;
++    writeln!(e, " x24={X24:016x} x25={X25:016x} x26={X26:016x}")?;
++    writeln!(e, " x27={X27:016x} x28={X28:016x}")?;
++    writeln!(e, "  fp={Fp:016x}  lr={Lr:016x}")?;
+     Ok(())
+ }
+ 
