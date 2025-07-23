@@ -29,6 +29,12 @@ cargo install \
   --locked \
   --path . \
   --profile release \
+  --root "${PREFIX}" \
+  || cargo install \
+  --no-track \
+  --locked \
+  --path . \
+  --profile release \
   --root "${PREFIX}"
 
 cargo-bundle-licenses \
