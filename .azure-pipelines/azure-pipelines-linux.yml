@@ -4,6 +4,7 @@
 
 jobs:
 - job: linux
+  free_disk_space: true
   pool:
     vmImage: ubuntu-latest
   strategy:
