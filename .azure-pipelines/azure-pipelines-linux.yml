@@ -4,7 +4,6 @@
 
 jobs:
 - job: linux
-  free_disk_space: true
   pool:
     vmImage: ubuntu-latest
   strategy:
@@ -25,6 +24,27 @@ jobs:
   variables: {}
 
   steps:
+  - script: |
+         sudo mkdir -p /opt/empty_dir || true
+         for d in \
+                  /opt/ghc \
+                  /opt/hostedtoolcache \
+                  /usr/lib/jvm \
+                  /usr/local/.ghcup \
+                  /usr/local/lib/android \
+                  /usr/local/share/powershell \
+                  /usr/share/dotnet \
+                  /usr/share/swift \
+                  ; do
+           sudo rsync --stats -a --delete /opt/empty_dir/ $d || true
+         done
+         sudo apt-get purge -y -f firefox \
+                                  google-chrome-stable \
+                                  microsoft-edge-stable
+         sudo apt-get autoremove -y >& /dev/null
+         sudo apt-get autoclean -y >& /dev/null
+         df -h
+    displayName: Manage disk space
   - script: |
          sudo fallocate -l 20GiB /swapfile || true
          sudo chmod 600 /swapfile || true
