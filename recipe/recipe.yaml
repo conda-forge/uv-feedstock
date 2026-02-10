@@ -24,6 +24,8 @@ build:
       JEMALLOC_SYS_WITH_LG_PAGE: ${{ "16" if target_platform == "linux-aarch64" or target_platform == "linux-ppc64le" }}
       # used in `build-uv.sh` to verity the expected version of rust
       CBC_RUST_VERSION: ${{ rust_compiler_version | default(".*") }}
+      # TODO: generally keep this commented out
+      RUST_BACKTRACE: "1"
 
 requirements:
   build:
