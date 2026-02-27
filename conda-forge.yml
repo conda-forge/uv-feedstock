@@ -10,9 +10,8 @@ bot:
   automerge: true
 build_platform:
   osx_arm64: osx_64
+  win_arm64: win_64
 conda_build:
-  # See https://github.com/conda-forge/rust-activation-feedstock/issues/58
-  # error_overlinking: true
   error_overlinking: false
 conda_build_tool: rattler-build
 conda_forge_output_validation: true
