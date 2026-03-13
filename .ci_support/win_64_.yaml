@@ -11,6 +11,6 @@ cxx_compiler:
 rust_compiler:
 - rust
 rust_compiler_version:
-- '1.91'
+- 1.92.0
 target_platform:
 - win-64
