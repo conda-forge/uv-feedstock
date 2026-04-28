@@ -1,7 +1,5 @@
 @echo on
 
-set CARGO_PROFILE_RELEASE_STRIP=symbols
-
 cd crates\uv
 
 cargo install ^
