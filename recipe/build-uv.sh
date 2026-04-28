@@ -4,8 +4,7 @@ set -eux
 echo "ensuring rust-version in Cargo.toml:#/workspace/package/rust-version is ${CBC_RUST_VERSION}"
 CARGO_TOML_RUST_VERSION=$(grep -iE "rust-version = \".*\"" Cargo.toml)
 
-if [[ $(echo "${CARGO_TOML_RUST_VERSION}" | grep -iE "rust-version = \"${CBC_RUST_VERSION}.*\"") ]] ;
-then
+if [[ "${CARGO_TOML_RUST_VERSION}" =~ .*\"${CBC_RUST_VERSION}.*\" ]]; then
   echo "OK rust version in Cargo.toml and conda_build_config.yaml agree: ${CBC_RUST_VERSION}"
 else
   echo "ERROR rust version unexpcted"
