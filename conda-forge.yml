@@ -8,8 +8,6 @@ azure:
   upload_packages: true
 bot:
   automerge: true
-build_platform:
-  osx_arm64: osx_64
 conda_build:
   # See https://github.com/conda-forge/rust-activation-feedstock/issues/58
   # error_overlinking: true
@@ -21,6 +19,7 @@ github:
   tooling_branch_name: main
 provider:
   linux_aarch64: default
+  linux_ppc64le: default
+  osx_arm64: default
 shellcheck:
   enabled: true
-test: native_and_emulated
