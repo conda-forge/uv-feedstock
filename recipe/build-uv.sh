@@ -37,3 +37,8 @@ cargo install \
 cargo-bundle-licenses \
   --format yaml \
   --output "${SRC_DIR}/THIRDPARTY.yml"
+
+mkdir -p "${PREFIX}"/share/zsh/site-functions "${PREFIX}"/share/bash-completion/completions "${PREFIX}"/share/fish/vendor_completions.d
+"${PREFIX}"/bin/uv generate-shell-completion zsh > "${PREFIX}"/share/zsh/site-functions/_uv
+"${PREFIX}"/bin/uv generate-shell-completion bash > "${PREFIX}"/share/bash-completion/completions/uv
+"${PREFIX}"/bin/uv generate-shell-completion fish > "${PREFIX}"/share/fish/vendor_completions.d/uv.fish
