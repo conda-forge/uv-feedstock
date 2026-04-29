@@ -44,6 +44,9 @@ mkdir -p \
   "${PREFIX}/share/fish/vendor_completions.d" \
   "${PREFIX}/share/zsh/site-functions"
 
-"${PREFIX}/bin/uv" generate-shell-completion bash > "${PREFIX}/share/bash-completion/completions/uv"
-"${PREFIX}/bin/uv" generate-shell-completion fish > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
-"${PREFIX}/bin/uv" generate-shell-completion zsh  > "${PREFIX}/share/zsh/site-functions/_uv"
+"${PREFIX}/bin/uv" generate-shell-completion bash \
+  > "${PREFIX}/share/bash-completion/completions/uv"
+"${PREFIX}/bin/uv" generate-shell-completion fish \
+  > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
+"${PREFIX}/bin/uv" generate-shell-completion zsh \
+  > "${PREFIX}/share/zsh/site-functions/_uv"

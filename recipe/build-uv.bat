@@ -21,9 +21,9 @@ md ^
     "%LIBRARY_PREFIX%\share\zsh\site-functions" ^
     || exit 4
 
-"%LIBRARY_BIN%\uv.exe" completion bash > "%LIBRARY_PREFIX%\share\bash-completion\completions\uv" ^
+"%LIBRARY_BIN%\uv.exe" generate-shell-completion bash > "%LIBRARY_PREFIX%\share\bash-completion\completions\uv" ^
     || exit 5
-"%LIBRARY_BIN%\uv.exe" completion fish > "%LIBRARY_PREFIX%\share\fish\vendor_completions.d\uv.fish" ^
+"%LIBRARY_BIN%\uv.exe" generate-shell-completion fish > "%LIBRARY_PREFIX%\share\fish\vendor_completions.d\uv.fish" ^
     || exit 6
-"%LIBRARY_BIN%\uv.exe" completion zsh  > "%LIBRARY_PREFIX%\share\zsh\site-functions\uv" ^
+"%LIBRARY_BIN%\uv.exe" generate-shell-completion zsh  > "%LIBRARY_PREFIX%\share\zsh\site-functions\uv" ^
     || exit 7
