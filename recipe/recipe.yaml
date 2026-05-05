@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.11.9"
+  version: "0.11.10"
 
 package:
   name: uv
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/astral-sh/uv/releases/download/${{ version }}/source.tar.gz
-  sha256: 47f8ce4e825f6fed374a883693363b3c0e39722822d387a24b273939acc6fe95
+  sha256: 9fa1d21a628c579498f17c140d70c40441fb6c8d5bac94634c84098445bcd1c7
   patches:
     - 0000-no-link-static-vc-runtime.patch
     - 0001-no-writeln-space-colon.patch
