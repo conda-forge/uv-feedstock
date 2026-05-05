@@ -1,7 +1,7 @@
-diff --git a/crates/uv/src/windows_exception.rs b/crates/uv/src/windows_exception.rs
+diff --git a/crates/uv-windows/src/exception.rs b/crates/uv-windows/src/exception.rs
 index 048eaa1..15d431a 100644
---- a/crates/uv/src/windows_exception.rs
-+++ b/crates/uv/src/windows_exception.rs
+--- a/crates/uv-windows/src/exception.rs
++++ b/crates/uv-windows/src/exception.rs
 @@ -174,8 +174,8 @@ fn dump_regs(e: &mut ExceptionSafeStderr, c: &CONTEXT) -> std::fmt::Result {
      } = c;
      writeln!(e, "rax={Rax:016x} rbx={Rbx:016x} rcx={Rcx:016x}")?;
