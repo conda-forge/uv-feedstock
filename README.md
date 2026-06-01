@@ -188,6 +188,3 @@ Feedstock Maintainers
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@charliermarsh](https://github.com/charliermarsh/)
 
-
-<!-- dummy commit to enable rerendering -->
-
