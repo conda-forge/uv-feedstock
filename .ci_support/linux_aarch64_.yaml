@@ -16,12 +16,16 @@ cxx_compiler_version:
 - '14'
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64:alma9
+liblzma_devel:
+- '5'
 rust_compiler:
 - rust
 rust_compiler_version:
 - 1.94.0
 target_platform:
 - linux-aarch64
+xz:
+- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
