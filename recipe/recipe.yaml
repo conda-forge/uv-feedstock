@@ -45,6 +45,7 @@ requirements:
     - make
     - pkg-config
   host:
+    - xz
     - zstd
 
 tests:
