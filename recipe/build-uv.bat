@@ -2,7 +2,7 @@
 
 cd crates\uv
 
-cargo install ^
+cargo auditable install ^
     --no-track ^
     --locked ^
     --path . ^

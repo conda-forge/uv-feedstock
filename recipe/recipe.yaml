@@ -39,6 +39,7 @@ requirements:
     - ${{ compiler("cxx") }}
     - ${{ compiler("rust") }}
     - ${{ stdlib("c") }}
+    - cargo-auditable
     - cargo-bundle-licenses
     - cmake
     - make
