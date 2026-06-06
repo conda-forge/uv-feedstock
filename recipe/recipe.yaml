@@ -29,6 +29,9 @@ build:
       # for cross-compiling issues
       #   fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'ARM64'
       AWS_LC_SYS_CMAKE_BUILDER: "1"
+      # for cross-compiling issues
+      #   error LNK2019: unresolved external symbol ZSTD_compressStream
+      ZSTD_SYS_USE_PKG_CONFIG: "1"
 
 requirements:
   build:
@@ -39,6 +42,9 @@ requirements:
     - cargo-bundle-licenses
     - cmake
     - make
+    - pkg-config
+  host:
+    - zstd
 
 tests:
   - requirements:
