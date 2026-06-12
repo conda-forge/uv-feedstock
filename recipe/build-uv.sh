@@ -22,13 +22,7 @@ fi
 
 cd crates/uv
 
-cargo install \
-  --no-track \
-  --locked \
-  --path . \
-  --profile release \
-  --root "${PREFIX}" \
-  || cargo install \
+cargo auditable install \
   --no-track \
   --locked \
   --path . \
