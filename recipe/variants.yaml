@@ -1,3 +1,5 @@
 # `build-uv-sh` compares this against `Cargo.toml#/workspace/package/rust-version`
 rust_compiler_version:
-  - "1.95.0"
+  - if: not (linux and riscv64)
+    then: "1.95.0"
+    else: "1.97.1" # first version available on riscv64
