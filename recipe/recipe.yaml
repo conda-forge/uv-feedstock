@@ -16,7 +16,7 @@ source:
     - 0001-no-writeln-space-colon.patch
 
 build:
-  number: 0
+  number: 1
   script:
     file: build-uv
     env:
