@@ -5,10 +5,12 @@ echo "ensuring rust-version in Cargo.toml:#/workspace/package/rust-version is ${
 CARGO_TOML_RUST_VERSION=$(grep -iE "rust-version = \".*\"" Cargo.toml)
 
 if [[ "${CARGO_TOML_RUST_VERSION}" =~ .*\"${CBC_RUST_VERSION}.*\" ]]; then
-  echo "OK rust version in Cargo.toml and conda_build_config.yaml agree: ${CBC_RUST_VERSION}"
+  echo "OK rust version in Cargo.toml and variants.yaml agree: ${CBC_RUST_VERSION}"
+elif [[ "${target_platform}" == "linux-riscv64" ]]; then
+  echo "OK rust version is specific on linux-riscv64: ${CBC_RUST_VERSION}"
 else
   echo "ERROR rust version unexpcted"
-  echo "... please update recipe/conda_build_config.yaml#/rust_compiler_version"
+  echo "... please update recipe/variants.yaml#/rust_compiler_version"
   echo "    to match ${CARGO_TOML_RUST_VERSION}"
   exit 2
 fi
