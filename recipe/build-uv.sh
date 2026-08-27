@@ -4,6 +4,9 @@ set -eux
 echo "ensuring rust-version in Cargo.toml:#/workspace/package/rust-version is ${CBC_RUST_VERSION}"
 CARGO_TOML_RUST_VERSION=$(grep -iE "rust-version = \".*\"" Cargo.toml)
 
+export PKG_CONFIG_SYSROOT_DIR="${PREFIX}"
+export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
+
 if [[ "${CARGO_TOML_RUST_VERSION}" =~ .*\"${CBC_RUST_VERSION}.*\" ]]; then
   echo "OK rust version in Cargo.toml and variants.yaml agree: ${CBC_RUST_VERSION}"
 elif [[ "${target_platform}" == "linux-riscv64" ]]; then
@@ -35,14 +38,16 @@ cargo-bundle-licenses \
   --format yaml \
   --output "${SRC_DIR}/THIRDPARTY.yml"
 
-mkdir -p \
-  "${PREFIX}/share/bash-completion/completions" \
-  "${PREFIX}/share/fish/vendor_completions.d" \
-  "${PREFIX}/share/zsh/site-functions"
+if [[ "${target_platform}" == "${build_platform}" ]]; then
+  mkdir -p \
+    "${PREFIX}/share/bash-completion/completions" \
+    "${PREFIX}/share/fish/vendor_completions.d" \
+    "${PREFIX}/share/zsh/site-functions"
 
-"${PREFIX}/bin/uv" generate-shell-completion bash \
-  > "${PREFIX}/share/bash-completion/completions/uv"
-"${PREFIX}/bin/uv" generate-shell-completion fish \
-  > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
-"${PREFIX}/bin/uv" generate-shell-completion zsh \
-  > "${PREFIX}/share/zsh/site-functions/_uv"
+  "${PREFIX}/bin/uv" generate-shell-completion bash \
+    > "${PREFIX}/share/bash-completion/completions/uv"
+  "${PREFIX}/bin/uv" generate-shell-completion fish \
+    > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
+  "${PREFIX}/bin/uv" generate-shell-completion zsh \
+    > "${PREFIX}/share/zsh/site-functions/_uv"
+fi
