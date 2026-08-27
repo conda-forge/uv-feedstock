@@ -1,6 +1,7 @@
 @echo on
 
 set "PKG_CONFIG_SYSROOT_DIR=%PREFIX%"
+set "PKG_CONFIG_PATH=%LIBRARY_PREFIX%/lib/pkgconfig"
 
 cd crates\uv
 
