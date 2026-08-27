@@ -1,5 +1,7 @@
 @echo on
 
+set "PKG_CONFIG_SYSROOT_DIR=%PREFIX%"
+
 cd crates\uv
 
 cargo auditable install ^
