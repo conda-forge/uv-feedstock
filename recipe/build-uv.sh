@@ -4,9 +4,6 @@ set -eux
 echo "ensuring rust-version in Cargo.toml:#/workspace/package/rust-version is ${CBC_RUST_VERSION}"
 CARGO_TOML_RUST_VERSION=$(grep -iE "rust-version = \".*\"" Cargo.toml)
 
-export PKG_CONFIG_SYSROOT_DIR="${PREFIX}"
-export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
-
 if [[ "${CARGO_TOML_RUST_VERSION}" =~ .*\"${CBC_RUST_VERSION}.*\" ]]; then
   echo "OK rust version in Cargo.toml and variants.yaml agree: ${CBC_RUST_VERSION}"
 elif [[ "${target_platform}" == "linux-riscv64" ]]; then
@@ -23,6 +20,12 @@ if [[ "${target_platform}" == "linux-ppc64le" ]]; then
   export CARGO_TARGET_POWERPC64LE_UNKNOWN_LINUX_GNU_LINKER="${CC}"
   export CFLAGS="${CFLAGS//-fno-plt/}"
   export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
+fi
+
+if [[ "${target_platform}" == "linux-riscv64" ]]; then
+  export CARGO_TARGET_RISCV64GC_UNKNOWN_LINUX_GNU_LINKER="${CC}"
+  export PKG_CONFIG_SYSROOT_DIR="${PREFIX}"
+  export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
 fi
 
 cd crates/uv
