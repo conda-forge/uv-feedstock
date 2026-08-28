@@ -26,6 +26,8 @@ if [[ "${target_platform}" == "linux-riscv64" ]]; then
   export CARGO_TARGET_RISCV64GC_UNKNOWN_LINUX_GNU_LINKER="${CC}"
   export PKG_CONFIG_SYSROOT_DIR="${PREFIX}"
   export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
+  export CFLAGS="${CFLAGS//-fno-plt/}"
+  export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
 fi
 
 cd crates/uv
