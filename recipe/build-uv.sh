@@ -22,15 +22,17 @@ if [[ "${target_platform}" == "linux-ppc64le" ]]; then
   export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
 fi
 
+if [[ "${target_platform}" == "linux-riscv64" ]]; then
+  export CARGO_TARGET_RISCV64GC_UNKNOWN_LINUX_GNU_LINKER="${CC}"
+  export PKG_CONFIG_SYSROOT_DIR="${PREFIX}"
+  export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
+  export CFLAGS="${CFLAGS//-fno-plt/}"
+  export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
+fi
+
 cd crates/uv
 
-cargo install \
-  --no-track \
-  --locked \
-  --path . \
-  --profile release \
-  --root "${PREFIX}" \
-  || cargo install \
+cargo auditable install \
   --no-track \
   --locked \
   --path . \
@@ -41,14 +43,16 @@ cargo-bundle-licenses \
   --format yaml \
   --output "${SRC_DIR}/THIRDPARTY.yml"
 
-mkdir -p \
-  "${PREFIX}/share/bash-completion/completions" \
-  "${PREFIX}/share/fish/vendor_completions.d" \
-  "${PREFIX}/share/zsh/site-functions"
+if [[ "${target_platform}" == "${build_platform}" ]]; then
+  mkdir -p \
+    "${PREFIX}/share/bash-completion/completions" \
+    "${PREFIX}/share/fish/vendor_completions.d" \
+    "${PREFIX}/share/zsh/site-functions"
 
-"${PREFIX}/bin/uv" generate-shell-completion bash \
-  > "${PREFIX}/share/bash-completion/completions/uv"
-"${PREFIX}/bin/uv" generate-shell-completion fish \
-  > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
-"${PREFIX}/bin/uv" generate-shell-completion zsh \
-  > "${PREFIX}/share/zsh/site-functions/_uv"
+  "${PREFIX}/bin/uv" generate-shell-completion bash \
+    > "${PREFIX}/share/bash-completion/completions/uv"
+  "${PREFIX}/bin/uv" generate-shell-completion fish \
+    > "${PREFIX}/share/fish/vendor_completions.d/uv.fish"
+  "${PREFIX}/bin/uv" generate-shell-completion zsh \
+    > "${PREFIX}/share/zsh/site-functions/_uv"
+fi
