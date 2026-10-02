@@ -45,19 +45,23 @@ requirements:
     - cmake
     - make
     - pkg-config
+    - if: build_platform != host_platform
+      then:
+        - liblzma-devel
+        - zstd
   host:
     - liblzma-devel
     - zstd
 
 tests:
-  - requirements:
-      run:
-        - if: win
-          then: m2-grep
-    script:
+  - package_contents:
+      strict: true
+      bin:
+        - uv
+  - script:
       - uv --version
       - uv --help
-      - uv --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - uv --version | ${{ "grep -iE " if unix else "findstr /r /c:" }}${{ version | replace('.', '\\.') }}
 
 about:
   homepage: https://github.com/astral-sh/uv
