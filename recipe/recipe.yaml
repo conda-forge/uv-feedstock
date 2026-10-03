@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.12.21"
+  version: "0.12.22"
 
 package:
   name: uv
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/astral-sh/uv/releases/download/${{ version }}/source.tar.gz
-  sha256: 7d9210faca6d7d87900a75f0a2f79f085f469b7c9477d7b770b991f1ea7a18e2
+  sha256: cac00ba17b2aa46a1e1412a0ef89f02a94d5d674858a25440c3e4736f21f184b
   patches:
     - 0000-no-link-static-vc-runtime.patch
     - 0001-no-writeln-space-colon.patch
@@ -50,14 +50,19 @@ requirements:
     - zstd
 
 tests:
-  - requirements:
-      run:
-        - if: win
-          then: m2-grep
-    script:
+  - package_contents:
+      strict: true
+      bin:
+        - uv
+        - uvx
+      files:
+        - ${{ "Library/" if win }}share/bash-completion/completions/uv
+        - ${{ "Library/" if win }}share/fish/vendor_completions.d/uv.fish
+        - ${{ "Library/" if win }}share/zsh/site-functions/_uv
+  - script:
       - uv --version
       - uv --help
-      - uv --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - uv --version | ${{ "grep -iE " if unix else "findstr /r /c:" }}${{ version | replace('.', '\\.') }}
 
 about:
   homepage: https://github.com/astral-sh/uv
