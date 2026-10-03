@@ -45,10 +45,6 @@ requirements:
     - cmake
     - make
     - pkg-config
-    - if: build_platform != host_platform
-      then:
-        - liblzma-devel
-        - zstd
   host:
     - liblzma-devel
     - zstd
@@ -58,6 +54,11 @@ tests:
       strict: true
       bin:
         - uv
+        - uvx
+      files:
+        - ${{ "Library/" if win }}share/bash-completion/completions/uv
+        - ${{ "Library/" if win }}share/fish/vendor_completions.d/uv.fish
+        - ${{ "Library/" if win }}share/zsh/site-functions/_uv
   - script:
       - uv --version
       - uv --help
