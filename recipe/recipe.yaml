@@ -29,6 +29,9 @@ build:
       # for cross-compiling issues
       #   error LNK2019: unresolved external symbol ZSTD_compressStream
       ZSTD_SYS_USE_PKG_CONFIG: "1"
+      # for cross-compiling issues
+      #   Can't probe for zstd in pkg-config: pkg-config has not been configured to support cross-compilation.
+      PKG_CONFIG_ALLOW_CROSS: "1"
     content:
       - if: build_platform != target_platform
         then:
@@ -39,8 +42,19 @@ build:
               - export TARGET_CFLAGS="${CFLAGS}"
               - unset CFLAGS
             else:
-            - set TARGET_CFLAGS="${CFLAGS}"
-            - set CFLAGS=
+              - set TARGET_CFLAGS="${CFLAGS}"
+              - set CFLAGS=
+      - if: build_platform != target_platform
+        then:
+          - if: unix
+            then:
+              - unset PKG_CONFIG_SYSROOT_DIR
+              - export PKG_CONFIG_LIBDIR="${PREFIX}/lib/pkgconfig"
+              - export PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig"
+            else:
+              - set PKG_CONFIG_SYSROOT_DIR=
+              - set "PKG_CONFIG_LIBDIR=%PREFIX%\lib\pkgconfig"
+              - set "PKG_CONFIG_PATH=%LIBRARY_PREFIX%\lib\pkgconfig"
       - cd crates/uv
       - cargo auditable install --no-track --locked --path=. --profile=release --root="${{ '${PREFIX}' if unix else '%LIBRARY_PREFIX%' }}"
       - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
