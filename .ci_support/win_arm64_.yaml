@@ -16,3 +16,5 @@ rust_compiler_version:
 - '1.97'
 target_platform:
 - win-arm64
+zstd:
+- '1.5'
