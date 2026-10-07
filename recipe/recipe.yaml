@@ -43,6 +43,9 @@ build:
         then:
           - set "PKG_CONFIG_SYSROOT_DIR=%PREFIX%"
           - set "PKG_CONFIG_PATH=%LIBRARY_PREFIX%\lib\pkgconfig"
+      - if: osx
+        then:
+          - export DYLD_LIBRARY_PATH=${PREFIX}/lib:${DYLD_LIBRARY_PATH:-}
       - cd crates/uv
       - cargo auditable install --no-track --locked --path=. --profile=release --root="${{ '${PREFIX}' if unix else '%LIBRARY_PREFIX%' }}"
       - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
