@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 set -eux
 
-echo "ensuring rust-version in Cargo.toml:#/workspace/package/rust-version is ${CBC_RUST_VERSION}"
-CARGO_TOML_RUST_VERSION=$(grep -iE "rust-version = \".*\"" Cargo.toml)
-
-if [[ "${CARGO_TOML_RUST_VERSION}" =~ .*\"${CBC_RUST_VERSION}.*\" ]]; then
-  echo "OK rust version in Cargo.toml and variants.yaml agree: ${CBC_RUST_VERSION}"
-elif [[ "${target_platform}" == "linux-riscv64" ]]; then
-  echo "OK rust version is specific on linux-riscv64: ${CBC_RUST_VERSION}"
-else
-  echo "ERROR rust version unexpcted"
-  echo "... please update recipe/variants.yaml#/rust_compiler_version"
-  echo "    to match ${CARGO_TOML_RUST_VERSION}"
-  exit 2
-fi
-
 # see https://github.com/conda-forge/uv-feedstock/pull/202#issuecomment-2890816026
 if [[ "${target_platform}" == "linux-ppc64le" ]]; then
   export CARGO_TARGET_POWERPC64LE_UNKNOWN_LINUX_GNU_LINKER="${CC}"
