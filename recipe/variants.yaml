@@ -1,3 +1,3 @@
-# from `Cargo.toml#/workspace/package/rust-version`
+# keep in sync to x.y vs `Cargo.toml#/workspace/package/rust-version`
 rust_compiler_version:
   - "1.97"
