@@ -98,7 +98,7 @@ about:
   license_file:
     - LICENSE-APACHE
     - LICENSE-MIT
-    - THIRDPARTY.yml
+    - crates/uv/THIRDPARTY.yml
   summary: An extremely fast Python package installer and resolver, written in Rust.
   documentation: https://docs.astral.sh/uv
 
