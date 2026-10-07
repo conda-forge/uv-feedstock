@@ -35,17 +35,6 @@ build:
     content:
       - if: build_platform != target_platform
         then:
-          # for cross-compiling issues
-          #   error: unrecognized argument in option '-mabi=lp64d'
-          - if: unix
-            then:
-              - export TARGET_CFLAGS="${CFLAGS}"
-              - unset CFLAGS
-            else:
-              - set TARGET_CFLAGS="${CFLAGS}"
-              - set CFLAGS=
-      - if: build_platform != target_platform
-        then:
           - if: unix
             then:
               - unset PKG_CONFIG_SYSROOT_DIR
