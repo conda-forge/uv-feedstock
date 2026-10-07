@@ -29,7 +29,6 @@ build:
       # for cross-compiling issues
       #   error LNK2019: unresolved external symbol ZSTD_compressStream
       ZSTD_SYS_USE_PKG_CONFIG: "1"
-      LZMA_API_STATIC: "0"
     content:
       - if: build_platform != target_platform
         then:
@@ -76,7 +75,6 @@ requirements:
     - make
     - pkg-config
   host:
-    - liblzma-devel
     - zstd
 
 tests:
