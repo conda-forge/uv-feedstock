@@ -21,11 +21,9 @@ liblzma_devel:
 rust_compiler:
 - rust
 rust_compiler_version:
-- 1.97.1
+- '1.97'
 target_platform:
 - linux-riscv64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-zstd:
-- '1.5'
