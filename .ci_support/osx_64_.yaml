@@ -18,14 +18,12 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '21'
-liblzma_devel:
-- '5'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 rust_compiler:
 - rust
 rust_compiler_version:
-- 1.96.0
+- '1.97'
 target_platform:
 - osx-64
 zip_keys:
