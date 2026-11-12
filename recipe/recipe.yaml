@@ -77,7 +77,7 @@ requirements:
     - cargo-auditable
     - cargo-bundle-licenses
     - cmake
-    - pkg-config
+    - pkgconf
     # TODO: remove condition after https://github.com/conda-forge/make-feedstock/pull/36
     - if: target_platform != "win-arm64"
       then:
