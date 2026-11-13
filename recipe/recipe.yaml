@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.13.7"
+  version: "0.13.8"
 
 package:
   name: uv
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/astral-sh/uv/releases/download/${{ version }}/source.tar.gz
-  sha256: 6e44f545ee8e9037bcc7c375018bc2c38d84327a6d08f3eb51525444ab50d21a
+  sha256: d4c04b6e4ca197f016cf0877814bcb81d210b962f452ca423ae8c3cd507b5785
   patches:
     - 0000-no-link-static-vc-runtime.patch
     - 0001-no-writeln-space-colon.patch
@@ -77,7 +77,7 @@ requirements:
     - cargo-auditable
     - cargo-bundle-licenses
     - cmake
-    - pkg-config
+    - pkgconf
     # TODO: remove condition after https://github.com/conda-forge/make-feedstock/pull/36
     - if: target_platform != "win-arm64"
       then:
