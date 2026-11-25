@@ -17,7 +17,7 @@ source:
     - 0002-zstd-pkg-config.patch
 
 build:
-  number: 0
+  number: 1
   script:
     env:
       CARGO_PROFILE_RELEASE_LTO: fat
